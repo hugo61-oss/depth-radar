@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Depth Radar — Token Launch Radar</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="logo">◉</div>
+    <div>
+      <h1>Depth Radar</h1>
+      <p class="sub">Token launch radar — ranked by liquidity depth, not raw size</p>
+    </div>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+
+<main>
+  <section class="card model" id="model-card">
+    <div class="model-head">
+      <h2>How the model works <span class="pill" id="model-version"></span></h2>
+      <p class="muted">A future token is worth what the protocol's liquidity can carry. Depth is TVL per chain: the same TVL concentrated on one chain is deep; spread across eight chains it is shallow everywhere.</p>
+    </div>
+    <div class="formula" id="formula"></div>
+    <div class="sliders">
+      <label>Depth weight <input type="range" id="depth-weight" min="0" max="100" value="100"><span id="depth-weight-val">1.00</span></label>
+      <label>Growth weight <input type="range" id="growth-weight" min="0" max="100" value="100"><span id="growth-weight-val">1.00</span></label>
+      <button class="btn" id="reset-model">Reset model</button>
+    </div>
+    <p class="muted small" id="model-note"></p>
+  </section>
+
+  <section class="card" id="depth-chart-card">
+    <h2>Deepest liquidity per chain <span class="muted small">— top 10 by depth, $ per chain</span></h2>
+    <div id="depth-chart"></div>
+  </section>
+
+  <section class="card controls" id="controls">
+    <input id="search" type="search" placeholder="Search name or slug…" aria-label="Search protocols">
+    <select id="category" aria-label="Category"><option value="">All categories</option></select>
+    <select id="chain" aria-label="Chain"><option value="">All chains</option></select>
+    <select id="min-tvl" aria-label="Minimum TVL">
+      <option value="0">Any TVL</option>
+      <option value="50000000">TVL ≥ $50M (watchlist floor)</option>
+      <option value="10000000">TVL ≥ $10M</option>
+      <option value="1000000">TVL ≥ $1M</option>
+    </select>
+    <select id="sort" aria-label="Sort by">
+      <option value="implied">Sort: implied value</option>
+      <option value="tvl">Sort: TVL</option>
+      <option value="depth">Sort: depth per chain</option>
+      <option value="growth">Sort: 7-day growth</option>
+      <option value="age">Sort: age</option>
+    </select>
+    <label class="check"><input type="checkbox" id="watchlist-only"> Watchlist only</label>
+  </section>
+
+  <section class="card board-card">
+    <div class="board-head">
+      <h2 id="board-title">The board</h2>
+      <span class="muted" id="board-count"></span>
+    </div>
+    <div class="table-wrap">
+      <table id="board">
+        <thead><tr>
+          <th>#</th><th>Protocol</th><th>Category</th><th>Chains</th>
+          <th class="num">TVL</th><th class="num">Depth / chain</th><th class="num">7d</th>
+          <th class="num">Age</th><th class="num">Implied value</th>
+        </tr></thead>
+        <tbody id="board-body"></tbody>
+      </table>
+    </div>
+    <p class="muted small">Click a row for its detail view and farm plan. Implied values are this entry's own claim, never make.fun's. This radar does not predict whether or when a token is issued.</p>
+  </section>
+
+  <section class="card detail" id="detail" hidden></section>
+
+  <section class="card" id="live-card">
+    <h2>Already live <span class="muted small">— tokens that trade, at the market's own values, never ranked with the pre-token board</span></h2>
+    <div class="live-grid" id="live-grid"></div>
+  </section>
+
+  <footer class="muted small">
+    <p id="source-line"></p>
+    <p>Snapshot figures only: TVL, chains, 7-day change, listing date. No protocol name is special-cased — the same formula scores every row. Farm steps name costs and times; never pay to claim an airdrop.</p>
+  </footer>
+</main>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

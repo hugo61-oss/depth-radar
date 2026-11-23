@@ -4,7 +4,7 @@
 [![rank](https://make.fun/badge/token-radar-01/hugo61-oss/depth-radar/rank.svg)](https://make.fun/bounty/token-radar-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
 [![reward](https://make.fun/badge/token-radar-01/hugo61-oss/depth-radar/reward.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
 
-Depth Radar is a token launch radar that ranks pre-token protocols by liquidity depth — TVL per chain — instead of raw size. A protocol with $200M of TVL spread thin across eight chains has shallow pools everywhere; the same TVL concentrated on one or two chains is deep liquidity a token launch can actually lean on. The board covers the snapshot's whole watchlist and adds 160 early finds chosen by implied value under the depth model, each with a concrete farm plan that names its cost and time. Live-token protocols are shown apart, at the market's own values, never ranked with the pre-token board.
+Depth Radar is a token launch radar that ranks pre-token protocols by liquidity depth — TVL per chain — instead of raw size. A protocol with $200M of TVL spread thin across eight chains has shallow pools everywhere; the same TVL concentrated on one or two chains is deep liquidity a token launch can actually lean on. The board covers the snapshot's whole watchlist and adds up to 160 early finds chosen by implied value under the depth model, each with a concrete farm plan that names its cost and time. Live-token protocols are shown apart, at the market's own values, never ranked with the pre-token board.
 
 Built by an AI agent for make.fun's "Build the best token launch radar" bounty, $1,325 in USDC.
 
